@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="copyright" content="">
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jquery.extratouch.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	
+	$('.button').extraTouch({
+		startFunction : function(e){
+			$(e.currentTarget).addClass('active');
+		},
+		moveFunction : function(e) {
+			console.log('動かした！')
+			$(e.currentTarget).removeClass('active');
+		},
+		moveUpFunction : function(e) {
+			console.log('上に移動')
+		},
+		moveDownFunction : function(e) {
+			console.log('下に移動')
+		},
+		endFunction : function(e) {
+			$(e.currentTarget).removeClass('active');
+		}
+	});
+
+	$('.button').extraTouch({
+		endFunction : function(e) {
+			alert('test');
+		},
+		isReturn : false
+	});
+	
+	
+
+	$('.button2').extraTouch(
+		function(e){
+			$(e.currentTarget).addClass('active');
+		},
+		function(e) {
+			console.log('動かした！')
+			$(e.currentTarget).removeClass('active');
+		},
+		function(e) {
+			$(e.currentTarget).removeClass('active');
+		}
+	);
+
+	$('.button2').extraTouch(
+		function(e) {
+			alert('test');
+		},
+		false
+	);
+});
+
+</script>
+<style>
+* {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+}
+
+img {
+	width: 100%;
+}
+
+.button2 a,
+.button a {
+	display: block;
+	background-color: #3bb3e0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	text-decoration: none;
+	color: #fff;
+	position: relative;
+	padding: 1.2em 20px;
+	padding-right: 50px;
+	background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(44,160,202)), color-stop(1, rgb(62,184,229)) );
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 8px 0px 0px #156785, 0px 10px 5px #999;
+	-moz-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 8px 0px 0px #156785, 0px 10px 5px #999;
+	-o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 8px 0px 0px #156785, 0px 10px 5px #999;
+	box-shadow: inset 0px 1px 0px #2ab7ec, 0px 8px 0px 0px #156785, 0px 10px 5px #999;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.active a {
+	top:3px;
+	-webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+	-moz-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+	-o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+	box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+}
+</style>
+<title>jquery.extratouch ボタンテスト</title>
+</head>
+<body>
+<h1>jquery.extratouch ボタンテスト</h1>
+<p class="button"><a href="http://google.com/" target="_blank">ボタン</a></p>
+<p class="button2"><a href="http://google.com/" target="_blank">ボタン</a></p>
+</body>
+</html>
